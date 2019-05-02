@@ -1,0 +1,158 @@
+html, body{
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+}
+main {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: #fcfcfc;
+}
+
+.phone {
+    font-family: 'Roboto', sans-serif;
+    width: 15rem;
+    height: 28.13rem;
+    background: #000;
+    border-radius: 1.7rem;
+    position: absolute;
+    left: 50%;
+    bottom: 0.5rem;
+    transform: translateX(-50%);
+    border: 0.6rem solid #242424;
+    overflow: hidden;
+}
+
+.phone .screen{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 0.8rem;
+    background: #222;
+    width: 95%;
+    height: 97%;
+    overflow: hidden;
+}
+
+.phone .tab-phone{
+    position: absolute;
+    top: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #000;
+    width: 55%;
+    height: 1.5rem;
+    border-radius: 0 0 0.6rem 0.6rem;
+    z-index: 2;
+}
+
+.phone .reflection{
+    position: absolute;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background: linear-gradient(45deg, rgba(89,89,89,1) 0%,rgba(128,128,128,1) 47%, rgba(153,153,153,1) 53%, rgba(255,255,255,1) 100% );
+    opacity: 0.2;
+}
+
+.block-screen {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 1.5rem;
+    transition: 0.7s top;
+    
+}
+
+.block-screen.unlock{
+    top: -150%;
+    /* animation: unlock;
+    animation-delay: 0.5s;
+    animation-duration: 1s;
+    animation-fill-mode: forwards; */
+}
+
+.block-screen.lock{
+    /* animation: lock;
+    animation-delay: 0.5s;
+    animation-duration: 1s;
+    animation-fill-mode: forwards; */
+}
+
+.block-screen::before{
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url('../images/background-phone.jpg') 100% center;
+    background-size: cover;
+    opacity: 0.7;
+    z-index: -1;
+}
+
+.block-screen .time, .block-screen .date, .block-screen i {
+    color: white;
+    margin-top: 0.5rem;
+}
+
+.block-screen .time {
+    font-size: 2.5rem;
+    font-weight: 100;
+}
+
+@keyframes unlock {
+    0% {
+        top: 0;
+    }
+
+    70% {
+        top: -50%;
+    }
+
+    80% {
+        top: -80%;
+    }
+
+    90% {
+        top: -100%;
+    }
+
+    100%{
+        top: -150%;
+    }
+}
+
+@keyframes lock {
+    0% {
+        top: -150%;
+    }
+
+    70% {
+        top: -100%;
+    }
+
+    80% {
+        top: -80%;
+    }
+
+    90% {
+        top: -50%;
+    }
+
+    100%{
+        top: 0;
+    }
+}
